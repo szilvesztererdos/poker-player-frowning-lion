@@ -3,7 +3,7 @@ import sys
 import operator
 
 class Player:
-    VERSION = "0.3"
+    VERSION = "0.4"
 
     def betRequest(self, game_state):
 
@@ -47,7 +47,7 @@ class Player:
         decision_value = max(figures_count_sorted[0][1], colors_count_sorted[0][1])
 
         if decision_value < 2:
-            return 0
+            return current_buy_in - players[in_action]["bet"]
         elif decision_value < 3:
             return current_buy_in - players[in_action]["bet"] + minimum_raise
         elif decision_value < 4:
