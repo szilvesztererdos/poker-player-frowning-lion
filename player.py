@@ -6,5 +6,6 @@ class Player:
         return 10000
 
     def showdown(self, game_state):
+        print(game_state)
         pass
 
