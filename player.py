@@ -1,10 +1,13 @@
 import json
+import sys
 
 class Player:
-    VERSION = "Default Python folding player+1"
+    VERSION = "0.1"
 
     def betRequest(self, game_state):
         game_state_obj = json.loads(game_state)
+        print("hello",file=sys.stderr)
+        print(game_state_obj,file=sys.stderr)
         current_buy_in = game_state_obj["current_buy_in"]
         players = game_state_obj["players"]
         in_action = game_state_obj["in_action"]
