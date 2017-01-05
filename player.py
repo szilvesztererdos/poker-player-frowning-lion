@@ -2,19 +2,17 @@ import json
 import sys
 
 class Player:
-    VERSION = "0.1"
+    VERSION = "0.2"
 
     def betRequest(self, game_state):
-        game_state_obj = json.loads(game_state)
-        print("hello",file=sys.stderr)
-        print(game_state_obj,file=sys.stderr)
-        current_buy_in = game_state_obj["current_buy_in"]
-        players = game_state_obj["players"]
-        in_action = game_state_obj["in_action"]
-        bet = game_state_obj["bet"]
-        minimum_raise = game_state_obj["minimum_raise"]
-        return current_buy_in - players[in_action][bet] + minimum_raise
+
+        current_buy_in = game_state["current_buy_in"]
+        players = game_state["players"]
+        in_action = int(game_state["in_action"])
+        print(in_action)
+        minimum_raise = game_state["minimum_raise"]
+        
+        return current_buy_in - players[in_action]["bet"] + minimum_raise
 
     def showdown(self, game_state):
         pass
-
